@@ -99,6 +99,13 @@ a:hover::after {
   width: 100%;
 }
 
+a:focus-visible,
+button:focus-visible,
+.hamburger-icon:focus-visible {
+  outline: 2px solid var(--secondary);
+  outline-offset: 3px;
+}
+
 .logo {
   font-size: 2rem;
   font-weight: 700;
@@ -115,11 +122,18 @@ a:hover::after {
 
 #hamburger-nav {
   display: none;
+  position: relative;
+  z-index: 20;
 }
 
 .hamburger-menu {
   position: relative;
   display: inline-block;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  padding: 0.5rem 0.6rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
 }
 
 .hamburger-icon {
@@ -129,6 +143,9 @@ a:hover::after {
   height: 24px;
   width: 30px;
   cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
 }
 
 .hamburger-icon span {
@@ -142,12 +159,19 @@ a:hover::after {
   position: absolute;
   top: 100%;
   right: 0;
-  background-color: var(--nav-bg);
+  background-color: rgba(0, 0, 0, 0.99);
   backdrop-filter: blur(10px);
   width: fit-content;
   max-height: 0;
   overflow: hidden;
   transition: all 0.3s ease-in-out;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 20px rgb(51, 225, 147);
+  z-index: 30;
 }
 
 .menu-links a {
@@ -214,7 +238,7 @@ section {
   align-items: center;
   gap: 4rem;
   min-height: 90vh;
-  padding: 6vh 2rem;
+  padding: 6vh 2rem 10vh;
   background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(52, 211, 153, 0.05) 100%);
 }
 
@@ -295,6 +319,7 @@ section {
   display: flex;
   justify-content: center;
   margin-top: 2rem;
+  margin-bottom: 2.5rem;
   gap: 2.5rem;
 }
 
@@ -321,6 +346,7 @@ section {
   display: flex;
   justify-content: center;
   gap: 1rem;
+  align-items: center;
 }
 
 .btn {
@@ -648,4 +674,124 @@ footer p {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+}
+@media screen and (max-width: 1400px) {
+  #profile {
+    height: 83vh;
+    margin-bottom: 6rem;
+  }
+  .about-containers {
+    flex-wrap: wrap;
+  }
+  #contact,
+  #projects {
+    height: fit-content;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  #desktop-nav {
+    display: none;
+  }
+  #hamburger-nav {
+    display: flex;
+  }
+  #experience,
+  .experience-details-container {
+    margin-top: 2rem;
+  }
+  #profile,
+  .section-container {
+    display: block;
+    flex-direction: column;
+  }
+  .about-details-container {
+    margin-top: 2rem;
+  }
+  .arrow {
+    display: none;
+  }
+  section,
+  .section-container {
+    height: fit-content;
+  }
+  section {
+    margin: 0 5%;
+  }
+  .section__pic-container {
+    width: 275px;
+    height: 275px;
+    margin: 0 auto 2rem;
+  }
+  .about-containers {
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #contact,
+  footer {
+    height: 40vh;
+  }
+  #profile {
+    height: 83vh;
+    margin-bottom: 0;
+  }
+  article {
+    font-size: 1rem;
+    width: 100%;
+    margin-bottom: 1rem;
+    gap: 2rem;
+    justify-content: center;
+    text-align: center;
+  }
+  .article-container {
+    justify-content: center;
+  }
+  footer nav {
+    height: fit-content;
+    margin-bottom: 2rem;
+    justify-content: center;
+  }
+  .about-containers,
+  .contact-info-upper-container,
+  .btn-container {
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .about-containers .details-container {
+      margin-bottom: 2rem;
+    }
+  .contact-info-container {
+    margin: 0;
+  }
+  .contact-info-container p,
+  .nav-links li a {
+    font-size: 1rem;
+  }
+  .experience-sub-title {
+    font-size: 1.25rem;
+  }
+  .logo {
+    font-size: 1.5rem;
+  }
+  .nav-links {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+  .section__pic-container {
+    width: auto;
+    height: 46vw;
+    justify-content: center;
+  }
+  .section__text__p2 {
+    font-size: 1.25rem;
+  }
+  .title {
+    font-size: 2rem;
+  }
+  .text-container {
+    text-align: justify;
+  }
 }
